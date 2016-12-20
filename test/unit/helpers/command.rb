@@ -90,6 +90,14 @@ module CommandTestHelper
       end
     end
 
+    # TODO: remove the function, it's a temporary shortcut for easier debugging
+    def t_it_should_accept(message, arguments=[])
+      it "should accept " + message.to_s do
+        require 'pry'; binding.pry
+        cmd.run(arguments).must_equal HammerCLI::EX_OK
+      end
+    end
+
     def it_should_output(message, adapter=:base)
       it "should output '" + message.to_s + "'" do
         arguments ||= respond_to?(:with_params) ? with_params : []

@@ -8,7 +8,6 @@ describe HammerCLIForeman::OperatingSystem do
   include CommandTestHelper
 
   context "ListCommand" do
-
     before :each do
       ResourceMocks.operatingsystems
     end
